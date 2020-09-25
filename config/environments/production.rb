@@ -88,4 +88,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  # 本番環境でのメール設定
+  config.action_mailer.default_url_options = { host: 'https://still-castle-98071.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'smtp.gmail.com',
+    user_name:            'lost.property.system@gmail.com',
+    password:             'gacikivnerfluetp',
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
 end
