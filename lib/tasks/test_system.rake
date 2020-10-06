@@ -7,7 +7,7 @@ namespace :test_system do
  
     Plan.all.each do |plan| 
       # 出発時間を過ぎたら処理
-    #  if plan.departure_at < Time.zone.now && plan.send_mail == "0"
+      if plan.departure_at < Time.zone.now && plan.send_mail == "0"
         begin
           # 処理
           plan.send_mail = "1"
@@ -59,4 +59,4 @@ namespace :test_system do
       end
     end
   end
-#end
+end
