@@ -26,6 +26,7 @@ gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'line-bot-api'
 
+
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

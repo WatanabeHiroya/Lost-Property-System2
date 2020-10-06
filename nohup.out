@@ -1,0 +1,12 @@
+/home/ec2-user/.rvm/gems/ruby-2.6.3/gems/clockwork-2.0.4/bin/clockwork:12:in `require': cannot load such file -- ./clock.rb (LoadError)
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/clockwork-2.0.4/bin/clockwork:12:in `<top (required)>'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/clockwork:23:in `load'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/clockwork:23:in `<main>'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/ruby_executable_hooks:24:in `eval'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/ruby_executable_hooks:24:in `<main>'
+/home/ec2-user/.rvm/gems/ruby-2.6.3/gems/clockwork-2.0.4/bin/clockwork:12:in `require': cannot load such file -- ./clock.rb (LoadError)
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/clockwork-2.0.4/bin/clockwork:12:in `<top (required)>'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/clockwork:23:in `load'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/clockwork:23:in `<main>'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/ruby_executable_hooks:24:in `eval'
+	from /home/ec2-user/.rvm/gems/ruby-2.6.3/bin/ruby_executable_hooks:24:in `<main>'
