@@ -1,16 +1,16 @@
-namespace :test_system do
-  desc "出発時間にメール送信"
-  task test: :environment do
+namespace :prior_system do
+  desc "出発時間10分前にメール送信"
+  task prior: :environment do
     #ここから処理を書いていく
     #定期実行する際に、そのログを取っておくのは大事。ログがないと定期実行でエラーが起きても分からない。
-    logger = Logger.new 'log/test.log'
+    logger = Logger.new 'log/prior.log'
  
     Plan.all.each do |plan| 
-      # 出発時間を過ぎたら処理
-      if plan.departure_at < Time.zone.now && plan.send_mail == "0"
+      # 出発時間15分前以内だったら
+      if plan.departure_at - Time.zone.now <= 180 && plan.prior_send_mail == "0"
         begin
           # 処理
-          plan.send_mail = "1"
+          plan.prior_send_mail = "1"
           plan.save(validate: false)
           user = User.find(plan.user_id)
           
@@ -23,7 +23,7 @@ namespace :test_system do
               messages = []
                 messages << {
                   type: 'text',
-                  text: "#{plan.subject}の出発予定時間のご連絡\n忘れ物があります！\n"
+                  text: "#{plan.subject}の出発予定時間が迫っています\n忘れ物があります！\n"
                 }
                 @no_check_items.each do |item|
                   messages << {
@@ -34,7 +34,7 @@ namespace :test_system do
             else
               messages = {
                 type: 'text',
-                text: "#{plan.subject}の出発予定時間のご連絡\n忘れ物はございません。\nいってらっしゃいませ！"
+                text: "#{plan.subject}の出発予定時間が迫っています\n忘れ物はございません。"
               }
             end
             client = Line::Bot::Client.new { |config|
@@ -44,7 +44,7 @@ namespace :test_system do
             response = client.push_message(user.uid, messages)
             p response
           else
-            LostPropertyMailer.send_mail(plan).deliver
+            LostPropertyMailer.prior_send_mail(plan).deliver
           end
 
 
