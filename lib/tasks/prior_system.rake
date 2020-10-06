@@ -7,7 +7,7 @@ namespace :prior_system do
  
     Plan.all.each do |plan| 
       # 出発時間15分前以内だったら
-      if plan.departure_at - Time.zone.now <= 180 && plan.prior_send_mail == "0"
+      if plan.departure_at - Time.zone.now <= 900 && plan.prior_send_mail == "0"
         begin
           # 処理
           plan.prior_send_mail = "1"
